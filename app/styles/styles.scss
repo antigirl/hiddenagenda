@@ -1,0 +1,19 @@
+@import "compass/css3";
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+@import 'compass/css3/filter';
+
+
+$purple: #a16cc4;
+$yellow: #dfe60a;
+$blue: #6eebdc;
+$purple: #4f0b7b;
+
+// $sprites-layout:smart;
+// $sprites-spacing: 20px;
+// $sprites-sprite-dimensions: true;
+// @import "sprites/*.png";
+// @include all-sprites-sprites;
+
+@import "normalize";
+@import "global";
