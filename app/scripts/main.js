@@ -7,34 +7,40 @@ var hagenda = hagenda || {};
         scrollFactor: 0.5,
 
         scrolling: function() {
-            $('.parallaxWrap div').each(function(i, slide) {
+            var _this = this;
+            $(window).on('scroll',  function() {
+                $('.parallaxWrap div').each(function(i, slide) {
 
-                if (hagenda.Scrolling.getDocViewBottom() >= hagenda.Scrolling.getThreshold('slide'+(i+1))) {
-                    $(slide).css('-webkit-transform', 'translate3d(0, ' + hagenda.Scrolling.getOffset(i) + 'px, 0)');
-                }
+                    if (_this.getDocViewBottom() >= _this.getThreshold('slide'+(i+1))) {
+                        $(slide).css('-webkit-transform', 'translate3d(0, ' + hagenda.Scrolling.getOffset(i) + 'px, 0)');
+                    }
 
-                //hide next 1 up
-                if (hagenda.Scrolling.getDocViewTop() - $('#slide'+(i+1)).offset().top >= 0) {
-                      $('.parallaxWrap .img'+(i+2)).css('-webkit-transform', 'translate3d(0, -90000px, 0)');
-                }     
+                    //hide next 1 up
+                    if (_this.getDocViewTop() - _this.getElOffsetTop('slide'+(i+1)) >= 0) {
+                        $('.parallaxWrap .img'+(i+2)).css('-webkit-transform', 'translate3d(0, -90000px, 0)');
+                    }     
 
-                //hide previous ones
-                if (hagenda.Scrolling.getDocViewTop() - $('#slide'+(i+2)).offset().top >= 0) {
-                      $('.parallaxWrap .img'+(i+1)).css('-webkit-transform', 'translate3d(0, -90000px, 0)');
-                }                     
+                    //hide previous ones
+                    if (_this.getDocViewTop() - _this.getElOffsetTop('slide'+(i+2)) >= 0) {
+                        $('.parallaxWrap .img'+(i+1)).css('-webkit-transform', 'translate3d(0, -90000px, 0)');
+                    }                     
+                });
             });
-
         },
 
         getThreshold: function(id) {
-            var elTop =  $('#'+id).offset().top;
+            var elTop =  this.getElOffsetTop(id);
             var thresh = elTop + $('#'+id).height();
 
             return thresh;
         },
 
+        getElOffsetTop: function(id) {
+            return $('#'+id).offset().top;
+        },
+
         getOffset: function(i) {
-            return hagenda.Scrolling.offset - ($('body').scrollTop() * hagenda.Scrolling.scrollFactor- ((850+500)/2)*i);
+            return this.offset - ($('body').scrollTop() * this.scrollFactor - ((850 + 500) / 2) * i);
         },
 
         getDocViewTop: function() {
@@ -42,11 +48,11 @@ var hagenda = hagenda || {};
         },
 
         getDocViewBottom: function() {
-            return hagenda.Scrolling.getDocViewTop() + $(window).height();
+            return this.getDocViewTop() + $(window).height();
         },
 
         init: function() {
-            $(window).on('scroll',this.scrolling);
+            this.scrolling();
         }
 
     };
