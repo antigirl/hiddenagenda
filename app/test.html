@@ -36,14 +36,14 @@
             z-index: 2;
         }
 
-        .parallaxWrapper {
+        .parallaxWrap {
             position: fixed;
             top: 0;
             left: 0;
             z-index: 1;
         }
 
-        .parallaxWrapper div {
+        .parallaxWrap div {
             width: 100%;
             height: 100%;
             border:1px solid red;
@@ -77,32 +77,32 @@
           background-size: cover;            
         }
 
-        .parallaxWrapper .img1{
+        .parallaxWrap .img1{
             -webkit-transform: translate3d(0, 400px, 0);
         }
         </style>
     </head>
     <body>
 
-        <div class="parallaxWrapper">
+        <div class="parallaxWrap">
             <div class="img1"></div>
             <div class="img2"></div>
             <div class="img3"></div>
         </div>
 
-        <div class="blocks" id="first">
+        <div class="blocks" id="slide1">
             1
         </div>
 
-        <div class="blocks" id="second">
+        <div class="blocks" id="slide2">
             2
         </div>
 
-        <div class="blocks" id="third">
+        <div class="blocks" id="slide3">
             3
         </div>
 
-        <div class="blocks" id="forth">
+        <div class="blocks" id="slide4">
             4
         </div>
         <!-- build:js scripts/vendor.js -->
