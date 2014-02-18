@@ -1,0 +1,44 @@
+.parallaxWrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    .imgs {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top:0px;
+        left:0px;
+       -webkit-transform: translate3d(0, -90000px, 0); 
+
+        &.img1 {
+            display: none;       
+        }
+
+        &.img2 {
+          background: url(../images/test1.jpg) no-repeat center center; 
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;            
+        }
+
+        &.img3{
+          background: url(../images/test2.jpg) no-repeat center center; 
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;            
+        }
+
+
+        &.img4{
+          background: url(../images/test3.jpg) no-repeat center center; 
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;            
+        }        
+    }
+}

@@ -1,7 +1,7 @@
 @import "compass/css3";
 @import "compass/css3/transform";
 @import "compass/css3/transition";
-@import 'compass/css3/filter';
+@import "compass/css3/filter";
 
 
 $purple: #a16cc4;
@@ -17,3 +17,6 @@ $purple: #4f0b7b;
 
 @import "normalize";
 @import "global";
+@import "parallax";
+@import "nav";
+@import "calendar";
