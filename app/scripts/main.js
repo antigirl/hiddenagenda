@@ -1,6 +1,6 @@
 var hagenda = hagenda || {};
 
-(function () {
+(function() {
 
     hagenda.Scrolling = {
         offset: 400,
@@ -8,50 +8,57 @@ var hagenda = hagenda || {};
 
         scrolling: function() {
             var _this = this;
-            $(window).on('scroll',  function() {
+            $(window).on('scroll', function() {
                 $('.parallaxWrap div.imgs').each(function(i, slide) {
 
-                    if (_this.getDocViewBottom() >= _this.getThreshold('slide'+(i+1))) {
+                    if (_this.getDocViewBottom() >= _this.getThreshold('slide' + (i + 1))) {
                         $(slide).css('-webkit-transform', 'translate3d(0, ' + hagenda.Scrolling.getOffset(i) + 'px, 0)');
                     }
                     //hide next 1 up
-                    if (_this.getDocViewTop() - _this.getElOffsetTop('slide'+(i+1)) >= 0) {
-                        $('.parallaxWrap .img'+(i+2)).css('-webkit-transform', 'translate3d(0, -90000px, 0)');
-                         //if slide 2 is in view, pause the video
-                        if((i+1) == 2) {
-                            if(!$("video").get(0).paused){
-                                $('video').get(0).pause();
-                            }
-                        }                         
-                    }     
+                    if (_this.getDocViewTop() - _this.getElOffsetTop('slide' + (i + 1)) >= 0) {
+                        $('.parallaxWrap .img' + (i + 2)).css('-webkit-transform', 'translate3d(0, -90000px, 0)');
 
-                    //hide previous ones
-                    if (_this.getDocViewTop() - _this.getElOffsetTop('slide'+(i+2)) >= 0) {
-                        $('.parallaxWrap .img'+(i+1)).css('-webkit-transform', 'translate3d(0, -90000px, 0)');
-                    }            
-
-                     //if slide 1 is in view, play the video
-                    if (_this.getDocViewTop() - _this.getElOffsetTop('slide2') <= 0) {
-                        if($("video").get(0).paused){
-                            $('video').get(0).play();
+                        if ((i + 1) == 2) { //if slide 2 is in view, pause the video
+                            _this.actionVideo('pause');
                         }
-                    } 
+                    }
+                    //hide previous ones
+                    if (_this.getDocViewTop() - _this.getElOffsetTop('slide' + (i + 2)) >= 0) {
+                        $('.parallaxWrap .img' + (i + 1)).css('-webkit-transform', 'translate3d(0, -90000px, 0)');
+                    }
+                    //if slide 1 is in view, play the video
+                    if (_this.getDocViewTop() - _this.getElOffsetTop('slide2') <= 0) {
+                        _this.actionVideo('play');
+                    }
 
 
                 });
             });
         },
 
+        actionVideo: function(action) {
+            if (action == 'play') {
+                if ($("video").get(0).paused) {
+                    $('video').get(0).play();
+                }
+            } else {
+                if (!$("video").get(0).paused) {
+                    $('video').get(0).pause();
+                }
+            }
+
+        },
+
         getThreshold: function(id) {
-            var elTop =  this.getElOffsetTop(id);
-            var thresh = elTop + $('#'+id).height();
+            var elTop = this.getElOffsetTop(id);
+            var thresh = elTop + $('#' + id).height();
 
             return thresh;
         },
 
         getElOffsetTop: function(id) {
-            if($('#'+id).length >= 1) {
-                return $('#'+id).offset().top;
+            if ($('#' + id).length >= 1) {
+                return $('#' + id).offset().top;
             }
         },
 
@@ -79,4 +86,3 @@ var hagenda = hagenda || {};
 $(document).ready(function() {
     hagenda.Scrolling.init();
 });
-
