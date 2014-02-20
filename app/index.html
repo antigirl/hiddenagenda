@@ -48,6 +48,7 @@
     </section>
 
     <section class="blocks" id="slide2">
+<div id="newcountdown" style="color:white;"></div>
         <div class="content">
             <img src="images/del.png"/>
         </div>
@@ -66,7 +67,7 @@
                 <li>DEC <span>14</span></li>
             </ul>
   
-            <div class="dayStrip">
+            <div class="dayStrip" id="dayStrip">
                 <ul class="days">
                     <li>01<span>SAT</span></li>
                     <li>02<span>SUN</span></li>
@@ -102,10 +103,10 @@
             <div class="timerStrip">
                 <div class="content2">
                     <ul class="timer">
-                        <li>05<span>DAYS</span></li>
-                        <li>10<span>HOURS</span></li>
-                        <li>27<span>MINUTES</span></li>
-                        <li>30<span>SECONDS</span></li>
+                        <li><span>00</span><span>DAYS</span></li>
+                        <li><span>00</span><span>HOURS</span></li>
+                        <li><span>00</span><span>MINUTES</span></li>
+                        <li><span>00</span></li>
                     </ul>
                 </div>
             </div>    
@@ -127,6 +128,7 @@
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/iscroll.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -142,6 +144,7 @@
 
         <!-- build:js scripts/main.js -->
         <script src="scripts/main.js"></script>
+        <script src="scripts/calander.js"></script>
         <!-- endbuild -->
 </body>
 </html>

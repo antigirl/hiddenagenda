@@ -50,12 +50,70 @@ var hagenda = hagenda || {};
         },
 
         init: function() {
-            this.setupCalendar(this.getYear(), this.getMonth());
+           // this.setupCalendar(this.getYear(), this.getMonth());
+           var myScroll = new IScroll('#dayStrip',  { scrollX: true, scrollY: false, mouseWheel: false, bounce: false });
+          
+         
         }
 
     };
 
 
+
+    hagenda.Timer = {
+        sec: 1000,
+        min: 0,
+        hrs: 0,
+        day:0,
+        timer:0,
+        end:0,
+        idx: 'newcountdown',
+
+        countDown: function(date) {
+            this.end = new Date(date);
+            this.min = this.sec * 60;
+            this.hrs = this.min * 60;
+            this.day = this.hrs * 24;
+            this.timer = setInterval(this.showRemaining, 1000);
+        },
+
+        showRemaining: function() {
+         var _this = hagenda.Timer;
+         var now = new Date();
+            var distance = _this.end - now;
+            if (distance < 0) {
+                clearInterval(_this.timer);
+                console.log('expired');
+                return;
+            }
+ 
+            var days = _this.appendZero(Math.floor(distance / _this.day));
+            var hours = _this.appendZero(Math.floor((distance % _this.day) / _this.hrs));          
+            var minutes = _this.appendZero(Math.floor((distance % _this.hrs) / _this.min));        
+            var seconds = _this.appendZero(Math.floor((distance % _this.min) /_this.sec));
+ 
+            $('.timer li:nth-child(1) span:nth-child(1)').html(days);
+            $('.timer li:nth-child(2) span:nth-child(1)').html(hours);
+            $('.timer li:nth-child(3) span:nth-child(1)').html(minutes);
+            $('.timer li:nth-child(4) span:nth-child(1)').html(seconds);
+        },
+
+        appendZero: function(val) {
+            if(val <= 9) {
+                return '0' + val;
+            } else {
+                return val;
+            }
+        },
+
+        init: function(){
+           this.countDown('02/23/2014 10:00 AM');
+        }
+
+    }
+
 }());
 
 hagenda.Calendar.init();
+hagenda.Timer.init();
+
