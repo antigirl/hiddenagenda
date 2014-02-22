@@ -117,30 +117,29 @@ ul.days {
 	font-size: 180px;
 	color: #000;
 
-	.content2 {
-		margin: 0 auto;
-		width: 1300px;
-	}
 
 	ul.timer {
 		list-style-type: none;
-		margin-top: -12px;
+		margin: -12px 50px;
 		text-align: right;
 
 		
 		li {
 			font-family: Impact;
 			display: inline-block;
-			margin-right: 10px;
+			margin-right: -30px;
 			position: relative;
+			width: 194px;
+			text-align: center;
 
 
 			&:last-child {
-				margin-right: 0;
 				font-size: 50px;
-				top: 0px;
-				right: 100px;
-				position: absolute;
+				vertical-align: top;
+				padding-top: 20px;
+				margin-right: 0;
+				margin-left: -20px;
+				width: 60px;
 			}
 
 			span:nth-child(2) {

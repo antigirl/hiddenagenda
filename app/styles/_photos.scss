@@ -1,0 +1,169 @@
+ul.photos {
+	list-style-type: none;
+	width: 960px;
+	height: 100%;
+	position: relative;
+	margin: 0 auto;
+	padding: 0;
+	border-top: 100px solid #000;
+
+	li {
+		border:1px solid red;
+		display: inline-block;
+		position: absolute;
+		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+		border: 4px solid #000;
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+
+		span.details {
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.6);
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			.label {
+				width: 20px;
+				height: 20px;
+				background: #fff;
+				display: block;
+				position: absolute;
+				right: 10px;
+				top: 10px;
+			}
+
+			span:nth-child(1), 	span:nth-child(2) {
+				display: block;
+				width: 100%;
+				border-top: 2px solid #fff;
+				position: absolute;
+				text-align: left;
+				padding: 5px 0 5px 10px;
+			}
+
+			span:nth-child(1) {
+				font-size: 33px;
+				bottom: 25px;
+			}
+
+			span:nth-child(2) {
+				font-size: 15px;
+				bottom: 0;
+			}				
+		}
+
+		&.active, &:hover {
+			border: 4px solid #fff;
+
+			span {
+				display:block;
+			}
+		}	
+
+		&:nth-child(1) {
+			width: 400px;
+			height: 200px;
+			left: -250px;
+		}
+
+ 		&:nth-child(2) {
+			width: 200px;
+			height: 200px;
+			top: 200px;
+			left: -250px;
+		}
+
+ 		&:nth-child(3) {
+			width: 200px;
+			height: 200px;
+			top: 200px;
+			left: -50px;
+		}
+
+		&:nth-child(4) {
+			width: 400px;
+			height: 400px;
+			left: 150px;
+		}
+
+		&:nth-child(5) {
+			width: 400px;
+			height: 200px;	
+			left: 550px;			
+		}
+
+		&:nth-child(6) {
+			width: 400px;
+			height: 200px;	
+			left: 550px;
+			top: 200px;			
+		}
+
+
+		&:nth-child(7) {
+			width: 400px;
+			height: 200px;	
+			left: 150px;
+			top: 400px;	
+		}
+
+
+		&:nth-child(8) {
+			width: 400px;
+			height: 200px;	
+			left: 550px;
+			top: 400px;	
+		}
+
+ 		&:nth-child(9) {
+			width: 200px;
+			height: 200px;
+			top: 200px;
+			left: 950px;
+		}	
+
+		&:nth-child(10) {
+			width: 200px;
+			height: 200px;
+			top: 0;
+			left: 950px;
+		}
+	}
+}
+
+
+.photoModal {
+	width: 960px;
+	height: 960px;
+	position: fixed;
+	left: 50%;
+  	top: 50%;
+	-webkit-transform: translate(-50%, -50%); /* convert to other browsers */
+	transform: translate(-50%, -50%);
+	border:1px solid white;
+	background:rgba(0,0,0,0.6);
+	display: none;
+
+	&.active {
+		display: block;
+	}
+
+	.close {
+		width: 20px;
+		height: 20px;
+		background: #fff;
+		display: block;
+		position: absolute;
+		right: 20px;
+		top: 20px;
+	}	
+}
+
+.dialogOpen {
+	pointer-events: none;
+	-webkit-filter: blur(5px) grayscale(50%);
+}
