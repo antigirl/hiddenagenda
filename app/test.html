@@ -1,0 +1,37 @@
+<html>
+ <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '496641197111817',
+          status     : true,
+          xfbml      : true,
+          oauth      : true
+        });
+        
+        FB.api('/1420524734861328?access_token=496641197111817|vQbplr8VEUY3ZqeHbpOMtr6iYXE', function(response) {
+        if (response && !response.error) {
+          /* handle the result */
+          console.log(response);
+
+        }  
+         console.log(response.error);
+         // do something here they are logged in and have given you perms   
+        });
+      
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+
+
+    </script>
+
+</html>
+
+<!-- GET /oauth/access_token?client_id={app-id}&client_secret={app-secret}&grant_type=client_credentials -->

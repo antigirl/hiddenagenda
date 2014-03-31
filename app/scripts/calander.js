@@ -107,7 +107,7 @@ var hagenda = hagenda || {};
         },
 
         init: function(){
-           this.countDown('02/23/2014 10:00 AM');
+           this.countDown('02/28/2014 10:00 AM');
         }
 
     }

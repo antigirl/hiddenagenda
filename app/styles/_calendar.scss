@@ -1,159 +1,247 @@
-ul.months {
-	list-style-type: none;
-	font-size: 18px;
-	font-weight: bold;
-	position: absolute;
-	bottom: 360px;
-	white-space: nowrap;
-	width: 100%;
-	overflow: hidden;
-
-	li {
-		display: inline-block;
-		margin-right: 40px;
-		padding: 0 5px 0 5px;
-
-		&:last-child {
-			margin-right: 0;
-		}
-
-		span {
-			display: inline-block;
-			padding-left: 5px;
-		}
-
-		&.selected {
-			color:#000;
-			background:#fff;
-		}
-	}
+.blocks {
+	border: 1px solid red;
 }
-
-.dayStrip {
-	width: 100%;
+.cube {
+	width: 714px;
+	margin: 0 auto;
 	height: 100px;
-	overflow: hidden;
-	position: absolute;
-	bottom: 245px;
-
-	/* Prevent native touch events on Windows */
-	-ms-touch-action: none;
-
-	/* Prevent the callout on tap-hold and text selection */
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-
-	/* Prevent text resize on orientation change, useful for web-apps */
-	-webkit-text-size-adjust: none;
-	-moz-text-size-adjust: none;
-	-ms-text-size-adjust: none;
-	-o-text-size-adjust: none;
-	text-size-adjust: none;	
-}
-
-ul.days {
-	list-style-type: none;
-	white-space: nowrap;
-	font-size: 50px;
-	font-weight: bold;
-	height: 80px;
-	position: absolute;
-
-
-/* Prevent elements to be highlighted on tap */
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-
-	/* Put the scroller into the HW Compositing layer right from the start */
-	-webkit-transform: translateZ(0);
-	-moz-transform: translateZ(0);
-	-ms-transform: translateZ(0);
-	-o-transform: translateZ(0);
-	transform: translateZ(0);	
-
-
-	li {
-		display: inline-block;
-		margin-right: 40px;
-		position: relative;
-		width: 70px;
-		
-		&:first-child {
-			margin-left: 30px;
-		}
-
-		&:last-child {
-			margin-right: 0;
-		}
-
-		span {
-			font-size: 18px;
-			position: absolute;
-			bottom: -20px;
-			left: 0;		
-			width: 70px;
-		}
-
-		&.selected {
-			background: #fff;
-			color: #000;
-
-			span {
-				background: #fff;
-				color: #000;		
-			}	
-		}
-	}	
-}
-
-.timerStrip {
-	background: #fff;
-	height: 190px;
-	width: 100%;
-	position: absolute;
-	bottom: 50px;
-	font-size: 180px;
 	color: #000;
+	text-align: left;
+	font-size: 52px;
+	font-weight: bold;
+	-webkit-transition: .33s;
+	transition: .33s; /* Animate the transform properties */
+	
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d; /* <-NB */
+	border: 1px solid red;
+
+}
+
+/* The two faces of the cube */
+.sideA, .sideB {
+	width: 714px;
+	// padding: 20px 0 0 20px;
+	background: #fff;
+	height: 100px;
+
+	// span {
+	// 	background: #000;
+	// 	color: #fff;
+	// 	display: inline-block;
+	// 	position: relative;
+	// 	width: 65px;
+	// 	text-align: center;
+	// 	float: right;
+	// 	margin-right: 10px;
+	// 	margin-top: -8px;
+
+	// 	span {
+	// 		width: 65px;
+	// 		text-align: center;
+	// 		font-size: 18px;
+	// 		position: absolute;
+	// 		left:0px;
+	// 		bottom: -14px;
+	// 	}
+	// }
+}
+
+/* Position the faces */
+.sideA {
+
+	-webkit-transform: translateZ(50px);
+	transform: translateZ(50px);
+}
+
+.sideB {
+	-webkit-transform: rotateX(-90deg) translateZ(-50px);
+	transform: rotateX(-90deg) translateZ(-50px);
+	background: url('https://scontent-b.xx.fbcdn.net/hphotos-ash3/t1.0-9/1964865_642974872436671_1614038835_n.jpg');
+	background-size: cover;
+}
+
+/* Rotate the cube */
+.cube.active {
+	-webkit-transform: rotateX(89deg);
+	transform: rotateX(89deg); /* Text bleed at 90º */
+
+}
+
+.cube.active2 {
+	  -webkit-transition: 1s;
+
+	-webkit-transform: rotateX(89deg);
+	transform: rotateX(89deg); /* Text bleed at 90º */
+
+	height: 220px;
 
 
-	ul.timer {
-		list-style-type: none;
-		margin: -12px 50px;
-		text-align: right;
+		.sideB {
+				height: 220px;
+				-webkit-transition: height 1s;
+		}
+
+}
+
+
+
+// ul.months {
+// 	list-style-type: none;
+// 	font-size: 18px;
+// 	font-weight: bold;
+// 	position: absolute;
+// 	bottom: 360px;
+// 	white-space: nowrap;
+// 	width: 100%;
+// 	overflow: hidden;
+
+// 	li {
+// 		display: inline-block;
+// 		margin-right: 40px;
+// 		padding: 0 5px 0 5px;
+
+// 		&:last-child {
+// 			margin-right: 0;
+// 		}
+
+// 		span {
+// 			display: inline-block;
+// 			padding-left: 5px;
+// 		}
+
+// 		&.selected {
+// 			color:#000;
+// 			background:#fff;
+// 		}
+// 	}
+// }
+
+// .dayStrip {
+// 	width: 100%;
+// 	height: 100px;
+// 	overflow: hidden;
+// 	position: absolute;
+// 	bottom: 245px;
+
+// 	/* Prevent native touch events on Windows */
+// 	-ms-touch-action: none;
+
+// 	/* Prevent the callout on tap-hold and text selection */
+// 	-webkit-touch-callout: none;
+// 	-webkit-user-select: none;
+// 	-moz-user-select: none;
+// 	-ms-user-select: none;
+// 	user-select: none;
+
+// 	/* Prevent text resize on orientation change, useful for web-apps */
+// 	-webkit-text-size-adjust: none;
+// 	-moz-text-size-adjust: none;
+// 	-ms-text-size-adjust: none;
+// 	-o-text-size-adjust: none;
+// 	text-size-adjust: none;	
+// }
+
+// ul.days {
+// 	list-style-type: none;
+// 	white-space: nowrap;
+// 	font-size: 50px;
+// 	font-weight: bold;
+// 	height: 80px;
+// 	position: absolute;
+
+
+// /* Prevent elements to be highlighted on tap */
+// 	-webkit-tap-highlight-color: rgba(0,0,0,0);
+
+// 	/* Put the scroller into the HW Compositing layer right from the start */
+// 	-webkit-transform: translateZ(0);
+// 	-moz-transform: translateZ(0);
+// 	-ms-transform: translateZ(0);
+// 	-o-transform: translateZ(0);
+// 	transform: translateZ(0);	
+
+
+// 	li {
+// 		display: inline-block;
+// 		margin-right: 40px;
+// 		position: relative;
+// 		width: 70px;
+		
+// 		&:first-child {
+// 			margin-left: 30px;
+// 		}
+
+// 		&:last-child {
+// 			margin-right: 0;
+// 		}
+
+// 		span {
+// 			font-size: 18px;
+// 			position: absolute;
+// 			bottom: -20px;
+// 			left: 0;		
+// 			width: 70px;
+// 		}
+
+// 		&.selected {
+// 			background: #fff;
+// 			color: #000;
+
+// 			span {
+// 				background: #fff;
+// 				color: #000;		
+// 			}	
+// 		}
+// 	}	
+// }
+
+// .timerStrip {
+// 	background: #fff;
+// 	height: 190px;
+// 	width: 100%;
+// 	position: absolute;
+// 	bottom: 50px;
+// 	font-size: 180px;
+// 	color: #000;
+
+
+// 	ul.timer {
+// 		list-style-type: none;
+// 		margin: -12px 50px;
+// 		text-align: right;
 
 		
-		li {
-			font-family: Impact;
-			display: inline-block;
-			margin-right: -30px;
-			position: relative;
-			width: 194px;
-			text-align: center;
+// 		li {
+// 			font-family: Impact;
+// 			display: inline-block;
+// 			margin-right: -30px;
+// 			position: relative;
+// 			width: 194px;
+// 			text-align: center;
 
 
-			&:last-child {
-				font-size: 50px;
-				vertical-align: top;
-				padding-top: 20px;
-				margin-right: 0;
-				margin-left: -20px;
-				width: 60px;
-			}
+// 			&:last-child {
+// 				font-size: 50px;
+// 				vertical-align: top;
+// 				padding-top: 20px;
+// 				margin-right: 0;
+// 				margin-left: -20px;
+// 				width: 60px;
+// 			}
 
-			span:nth-child(2) {
-				font-family: Helvetica;
-				font-weight: bold;
-				font-size: 22px;
-				position: absolute;
-				bottom: -20px;
-				left: 10px;
-				color: #fff;
-				width: 180px;
-				text-align: center;
-			}
-		}
-	}	
-}
+// 			span:nth-child(2) {
+// 				font-family: Helvetica;
+// 				font-weight: bold;
+// 				font-size: 22px;
+// 				position: absolute;
+// 				bottom: -20px;
+// 				left: 10px;
+// 				color: #fff;
+// 				width: 180px;
+// 				text-align: center;
+// 			}
+// 		}
+// 	}	
+// }
 

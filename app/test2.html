@@ -1,0 +1,70 @@
+
+
+<html>
+<head>
+
+<style>
+span {
+	display: block;
+}
+
+.name {
+	font-weight: bold;
+}
+
+.cover {
+overflow: hidden;
+height: 249px;
+width: 585px;
+}
+</style>
+
+</head>
+
+<body>
+
+
+<ul id="events">
+</ul>
+
+<div id="eventDetails">
+	<span class="name"></span>
+	<span class="cover"><img src=""></span>
+	<span class="desc"></span>
+</div>
+
+<script src="bower_components/jquery/jquery.js"></script>
+<script>
+var events;
+$.getJSON( "https://graph.facebook.com/HiddenAgendaClub?fields=events.fields(id,cover,description,name)&access_token=496641197111817|vQbplr8VEUY3ZqeHbpOMtr6iYXE", function(data) {
+	var data = JSON.parse(JSON.stringify(data));
+	
+events = {};
+	  for (var prop in data.events.data) {
+	  	$('ul#events').append('<li id='+ data.events.data[prop].id +'>' + (data.events.data[prop].name).replace(/^.+:/,'').replace(/ *\[[^)]*\] */g, "") + '</li>')
+
+	  	events[data.events.data[prop].id] = {
+	  		id: data.events.data[prop].id,
+	  		name: data.events.data[prop].name,
+	  		desc: data.events.data[prop].description,
+	  		cover: data.events.data[prop].cover.source
+	  	};
+		// console.log(data.events.data[prop].id);
+
+		// 	console.log(data.events.data[prop].description);
+		// 	console.log(data.events.data[prop].cover.source);
+	  }
+	  		//console.log(events['1442011359364342']);
+});
+
+$('ul#events').on('click', 'li', function (){
+	var theID = $(this).attr('id');
+	$('#eventDetails .name').html(events[theID].name);
+	$('#eventDetails .desc').html(events[theID].desc);
+	$('#eventDetails .cover img').attr('src', events[theID].cover);
+});
+</script>
+</body>
+</html>
+
+        
