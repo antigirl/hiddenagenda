@@ -7,7 +7,7 @@
         },
 
         dialogueOpen: function(e) {
-
+            $('.cube').removeClass('active2');
             $(this).addClass('active2');
         },
 

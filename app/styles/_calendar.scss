@@ -1,6 +1,3 @@
-.blocks {
-	border: 1px solid red;
-}
 .cube {
 	width: 714px;
 	margin: 0 auto;
@@ -11,11 +8,9 @@
 	font-weight: bold;
 	-webkit-transition: .33s;
 	transition: .33s; /* Animate the transform properties */
-	
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d; /* <-NB */
-	border: 1px solid red;
-
+	margin-bottom: 40px;
 }
 
 /* The two faces of the cube */
@@ -25,31 +20,30 @@
 	background: #fff;
 	height: 100px;
 
-	// span {
-	// 	background: #000;
-	// 	color: #fff;
-	// 	display: inline-block;
-	// 	position: relative;
-	// 	width: 65px;
-	// 	text-align: center;
-	// 	float: right;
-	// 	margin-right: 10px;
-	// 	margin-top: -8px;
+	span {
+		background: #000;
+		color: #fff;
+		display: inline-block;
+		position: relative;
+		width: 65px;
+		text-align: center;
+		float: right;
+		margin-right: 10px;
+		margin-top: 10px;
 
-	// 	span {
-	// 		width: 65px;
-	// 		text-align: center;
-	// 		font-size: 18px;
-	// 		position: absolute;
-	// 		left:0px;
-	// 		bottom: -14px;
-	// 	}
-	// }
+		span {
+			width: 65px;
+			text-align: center;
+			font-size: 18px;
+			position: absolute;
+			left:0px;
+			bottom: -14px;
+		}
+	}
 }
 
 /* Position the faces */
 .sideA {
-
 	-webkit-transform: translateZ(50px);
 	transform: translateZ(50px);
 }
@@ -57,34 +51,67 @@
 .sideB {
 	-webkit-transform: rotateX(-90deg) translateZ(-50px);
 	transform: rotateX(-90deg) translateZ(-50px);
-	background: url('https://scontent-b.xx.fbcdn.net/hphotos-ash3/t1.0-9/1964865_642974872436671_1614038835_n.jpg');
+	// background: url('https://scontent-b.xx.fbcdn.net/hphotos-ash3/t1.0-9/1964865_642974872436671_1614038835_n.jpg');
 	background-size: cover;
+
+	div.infoz {
+		font-size: 25px;
+		color: #fff;
+		background: black;
+		width: 100%;
+	}
+
+	div.infoz2 {
+		font-size: 18px;
+		background: black;
+		color: #fff;	
+		margin: 10px;
+			width: auto;
+	}
 }
 
 /* Rotate the cube */
 .cube.active {
 	-webkit-transform: rotateX(89deg);
 	transform: rotateX(89deg); /* Text bleed at 90º */
-
 }
 
 .cube.active2 {
-	  -webkit-transition: 1s;
-
+	 -webkit-transition: .3s;
 	-webkit-transform: rotateX(89deg);
 	transform: rotateX(89deg); /* Text bleed at 90º */
-
 	height: 220px;
 
-
-		.sideB {
-				height: 220px;
-				-webkit-transition: height 1s;
-		}
-
+	.sideB {
+		height: 220px;
+		-webkit-transition: height .3s;
+	}
 }
 
 
+.cube:nth-of-type(1) {
+	.sideB {
+		background: url('https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-prn2/t1.0-9/1069977_655438527856972_627353288_n.jpg');
+	}
+}
+
+.cube:nth-of-type(2) {
+	.sideB {
+		background: url('https://scontent-b.xx.fbcdn.net/hphotos-ash3/t1.0-9/1964865_642974872436671_1614038835_n.jpg');
+	}
+}
+
+.cube:nth-of-type(3) {
+	.sideB {
+		background: url('https://scontent-b.xx.fbcdn.net/hphotos-prn2/t1.0-9/s720x720/1476246_656265954440896_2027412595_n.jpg');
+	}
+}
+
+.cube:nth-of-type(4) {
+	.sideB {
+		background: url('https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-prn1/t1.0-9/1011016_644492668951558_1536137269_n.jpg');
+	}
+}
 
 // ul.months {
 // 	list-style-type: none;
