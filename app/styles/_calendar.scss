@@ -1,7 +1,11 @@
+.events {
+	padding-top: 90px;
+}
+
 .cube {
-	width: 714px;
+	width: 704px;
 	margin: 0 auto;
-	height: 100px;
+	height: 90px;
 	color: #000;
 	text-align: left;
 	font-size: 52px;
@@ -11,14 +15,21 @@
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d; /* <-NB */
 	margin-bottom: 40px;
+
 }
 
 /* The two faces of the cube */
 .sideA, .sideB {
-	width: 714px;
-	// padding: 20px 0 0 20px;
+	width: 704px;
+	padding: 10px 0 0 10px;
 	background: #fff;
-	height: 100px;
+	height: 90px;
+
+
+	div.heading {
+		font-size: 52px;
+		display: inline;
+	}
 
 	span {
 		background: #000;
@@ -27,9 +38,9 @@
 		position: relative;
 		width: 65px;
 		text-align: center;
-		float: right;
-		margin-right: 10px;
-		margin-top: 10px;
+		clear: both;
+		position: absolute;
+    	right: 10px;
 
 		span {
 			width: 65px;
@@ -45,35 +56,58 @@
 /* Position the faces */
 .sideA {
 	-webkit-transform: translateZ(50px);
-	transform: translateZ(50px);
+	transform: translateZ(50px);	
 }
 
 .sideB {
 	-webkit-transform: rotateX(-90deg) translateZ(-50px);
 	transform: rotateX(-90deg) translateZ(-50px);
-	// background: url('https://scontent-b.xx.fbcdn.net/hphotos-ash3/t1.0-9/1964865_642974872436671_1614038835_n.jpg');
 	background-size: cover;
+	background-repeat:no-repeat;
 
-	div.infoz {
-		font-size: 25px;
+	color: #000;
+
+	div.heading {
 		color: #fff;
-		background: black;
-		width: 100%;
+		background: #000;
+		padding: 5px;
+
 	}
 
-	div.infoz2 {
+	div.info{
 		font-size: 18px;
-		background: black;
-		color: #fff;	
-		margin: 10px;
-			width: auto;
-	}
+		background: #000;
+		font-weight: normal;
+		color: #fff;
+		height: 90px;
+		overflow: hidden;
+		width: 674px;
+		margin: 35px 10px 10px 0;
+		padding: 10px;
+		overflow: hidden;
+		display: none;
+
+			&.active {
+				display: block;
+			}
+
+		a.moreTxt {
+			color: black;
+			background: white;
+			float: right;
+			margin-right: 5px;
+			margin-top: 5px;
+			font-size: 14px;
+			padding: 1px;
+		}
+	}	
 }
+
 
 /* Rotate the cube */
 .cube.active {
-	-webkit-transform: rotateX(89deg);
-	transform: rotateX(89deg); /* Text bleed at 90º */
+	-webkit-transform: rotateX(89.9deg);
+	transform: rotateX(89.9deg); /* Text bleed at 90º */
 }
 
 .cube.active2 {
@@ -88,30 +122,64 @@
 	}
 }
 
+.popupModal {
+	padding: 50px;
 
-.cube:nth-of-type(1) {
-	.sideB {
-		background: url('https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-prn2/t1.0-9/1069977_655438527856972_627353288_n.jpg');
+	.content {
+		width: 100%;
+		padding: 0px;
+
+		.info {
+			margin-top: 20px;
+			height: 300px;
+			white-space: pre-line;
+			overflow: scroll;			
+		}
+
+		div.header {
+			font-size: 52px;
+			color: #fff;
+			background: #000;
+			display: block;
+			padding: 10px 0 10px 0px;
+			position: relative;
+
+			span {
+				background: #000;
+				color: #fff;
+				display: block;
+				position: relative;
+				width: 65px;
+				text-align: center;
+				font-weight: bold;
+				position: absolute;
+		    	right: 10px;
+		    	top: 0;
+
+				span {
+					width: 65px;
+					text-align: center;
+					font-size: 18px;
+					position: absolute;
+					left:0px;
+					top: 70px;
+					top: 54px;
+				}
+			}			
+
+		}
 	}
 }
 
-.cube:nth-of-type(2) {
-	.sideB {
-		background: url('https://scontent-b.xx.fbcdn.net/hphotos-ash3/t1.0-9/1964865_642974872436671_1614038835_n.jpg');
-	}
+.content .cover {
+	overflow: hidden;
+	height: 249px;
+	width: 840px;
+	margin-top: 20px;
+	background-repeat: none;
+	background-size: cover;
 }
 
-.cube:nth-of-type(3) {
-	.sideB {
-		background: url('https://scontent-b.xx.fbcdn.net/hphotos-prn2/t1.0-9/s720x720/1476246_656265954440896_2027412595_n.jpg');
-	}
-}
-
-.cube:nth-of-type(4) {
-	.sideB {
-		background: url('https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-prn1/t1.0-9/1011016_644492668951558_1536137269_n.jpg');
-	}
-}
 
 // ul.months {
 // 	list-style-type: none;

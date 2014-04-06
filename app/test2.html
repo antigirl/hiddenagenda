@@ -31,12 +31,13 @@ width: 585px;
 	<span class="name"></span>
 	<span class="cover"><img src=""></span>
 	<span class="desc"></span>
+	<span class="date">xxx</span>
 </div>
 
 <script src="bower_components/jquery/jquery.js"></script>
 <script>
 var events;
-$.getJSON( "https://graph.facebook.com/HiddenAgendaClub?fields=events.fields(id,cover,description,name)&access_token=496641197111817|vQbplr8VEUY3ZqeHbpOMtr6iYXE", function(data) {
+$.getJSON( "https://graph.facebook.com/HiddenAgendaClub?fields=events.fields(id,cover,description,name,start_time)&access_token=496641197111817|vQbplr8VEUY3ZqeHbpOMtr6iYXE", function(data) {
 	var data = JSON.parse(JSON.stringify(data));
 	
 events = {};
@@ -47,7 +48,8 @@ events = {};
 	  		id: data.events.data[prop].id,
 	  		name: data.events.data[prop].name,
 	  		desc: data.events.data[prop].description,
-	  		cover: data.events.data[prop].cover.source
+	  		cover: data.events.data[prop].cover.source,
+	  		date: data.events.data[prop].start_time
 	  	};
 		// console.log(data.events.data[prop].id);
 
@@ -61,6 +63,7 @@ $('ul#events').on('click', 'li', function (){
 	var theID = $(this).attr('id');
 	$('#eventDetails .name').html(events[theID].name);
 	$('#eventDetails .desc').html(events[theID].desc);
+	$('#eventDetails .date').html(events[theID].date);
 	$('#eventDetails .cover img').attr('src', events[theID].cover);
 });
 </script>
