@@ -4,20 +4,28 @@
         moreTxt: '<a class="moreTxt">... click for more </a>',
         events: [],
 
+        getToday: function() {
+            var now = new Date();
+            var startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            var timestamp = startOfDay / 1000;
+
+            return timestamp;
+        },
+
         getData: function() {
-            $.getJSON("https://graph.facebook.com/HiddenAgendaClub?fields=events.fields(id,cover,description,name,start_time)&access_token=496641197111817|vQbplr8VEUY3ZqeHbpOMtr6iYXE", function(data) {
+            $.getJSON("https://graph.facebook.com/fql?access_token=496641197111817|vQbplr8VEUY3ZqeHbpOMtr6iYXE&q=SELECT+eid,pic_cover,description,name,start_time+FROM+event+WHERE+creator+=+200836053317224+AND+start_time+%3E+" + hagenda.Events.getToday() + "+ORDER+BY+start_time+LIMIT+4", function(data) {
                 var data = JSON.parse(JSON.stringify(data));
                 var i = 1;
-                for (var prop in data.events.data) {
+                for (var prop in data.data) {
                     if (i <= 4) {
-                        $('#slide2 .events').append('<div class="cube" data-id=' + data.events.data[prop].id + '>' + '<div class="sideA">' + '<div class="heading">' + (data.events.data[prop].name).replace(/^.+:/, '').replace(/ *\[[^)]*\] */g, "").substring(0, 20) + '</div><span>' + hagenda.Events.sortDate(data.events.data[prop].start_time) + '</span></div>' + '<div class="sideB" style="background-image:url(' + data.events.data[prop].cover.source + ')">' + '<div class="heading">' + (data.events.data[prop].name).replace(/^.+:/, '').replace(/ *\[[^)]*\] */g, "").substring(0, 20) + '</div> <span>' + hagenda.Events.sortDate(data.events.data[prop].start_time) + '</span>' + '<div class="info">' + data.events.data[prop].description.substring(0, 250) + '...' + hagenda.Events.moreTxt + '</div></div>' + '</div>');
+                        $('#slide2 .events').append('<div class="cube" data-id=' + data.data[prop].eid + '>' + '<div class="sideA">' + '<div class="heading">' + (data.data[prop].name).replace(/^.+:/, '').replace(/ *\[[^)]*\] */g, "").substring(0, 20) + '</div><span>' + hagenda.Events.sortDate(data.data[prop].start_time) + '</span></div>' + '<div class="sideB" style="background-image:url(' + data.data[prop].pic_cover.source + ')">' + '<div class="heading">' + (data.data[prop].name).replace(/^.+:/, '').replace(/ *\[[^)]*\] */g, "").substring(0, 20) + '</div> <span>' + hagenda.Events.sortDate(data.data[prop].start_time) + '</span>' + '<div class="info">' + data.data[prop].description.substring(0, 250) + '...' + hagenda.Events.moreTxt + '</div></div>' + '</div>');
 
-                        hagenda.Events.events[data.events.data[prop].id] = {
-                            id: data.events.data[prop].id,
-                            name: data.events.data[prop].name,
-                            desc: data.events.data[prop].description,
-                            cover: data.events.data[prop].cover.source,
-                            date: data.events.data[prop].start_time
+                        hagenda.Events.events[data.data[prop].eid] = {
+                            id: data.data[prop].eid,
+                            name: data.data[prop].name,
+                            desc: data.data[prop].description,
+                            cover: data.data[prop].pic_cover.source,
+                            date: data.data[prop].start_time
                         };
                         i++
                     }
@@ -41,7 +49,12 @@
             hagenda.Events.populateYoutube();
         },
 
-        populateYoutube: function(descText) {
+        convertLinks: function() {
+            var linkable_content = $('.popupModal .content .info').html().replace(/(https?:\/\/[^ ;|\\*'"!,()<>]+\/?)/g, '<a href="$1">$1</a>');
+            $('.popupModal .content .info').html(linkable_content);
+        },
+
+        populateYoutube: function() {
             var vidWidth = 425;
             var vidHeight = 344;
 
