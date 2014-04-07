@@ -71,32 +71,42 @@
     </section>
 
     <section class="blocks" id="slide4">
-        <h1>SOME TITLE</h1>
+        <h1>SOCIAL CONTENT</h1>
         <h2>drivel post here about something, dont be needy</h2>     
 
-        <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=496641197111817";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
+        <div class="content">
+            <div class="tabs">
+                <div class="tab facebook active"  data-social="facebook"></div>
+                <div class="tab twitter" data-social="twitter"></div>
+                <div class="tab tumblr" data-social="tumblr"></div>
+            </div>
 
+            <div class="tabcontentWrapper">
 
-        <style>
-#facebook-likebox-3 iframe {
-    height: 200px !important;
-    border-bottom: 1px solid #AAA !important;
-}​
-        </style>
-        <div class="fb-like-box" data-href="https://www.facebook.com/HiddenAgendaClub" data-width="500" data-height="600" data-colorscheme="dark" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false"></div>   
+                <div class="tabcontent active" data-social="facebook">
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=496641197111817";
+                    fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+                    <div class="fb-like-box" data-href="https://www.facebook.com/HiddenAgendaClub" data-width="750" data-height="850" data-colorscheme="dark" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false"></div>   
+                </div>
 
-
-        <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/HIDDEN_AGENDA_" data-widget-id="453151065098055680">Tweets by @HIDDEN_AGENDA_</a>
+                <div class="tabcontent" data-social="twitter">
+                   <a class="twitter-timeline" width="750" height="850" href="https://twitter.com/HIDDEN_AGENDA_" data-widget-id="453151065098055680" data-chrome="transparent">Tweets by @HIDDEN_AGENDA_</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div>
 
-
+                <div class="tabcontent" data-social="tumblr">
+                    <div class="tumblrContent">
+                        <script type="text/javascript" src="http://hiddenagendaclub.tumblr.com/js"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
     </section>      
@@ -133,6 +143,7 @@
         <!-- build:js scripts/main.js -->
         <script src="scripts/main.js"></script>
         <script src="scripts/events.js"></script>
+        <script src="scripts/social.js"></script>
         <script src="scripts/photos.js"></script>
         <!-- endbuild -->
 </body>
