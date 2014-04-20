@@ -10,7 +10,11 @@
         position: fixed;
         top:0px;
         left:0px;
-       -webkit-transform: translate3d(0, -90000px, 0); 
+      -webkit-transform: translate3d(0, -90000px, 0); 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;        
 
         &.img1 {
             display: none;       
@@ -18,27 +22,22 @@
 
         &.img2 {
           background: url(../images/test1.jpg) no-repeat center center; 
-          -webkit-background-size: cover;
-          -moz-background-size: cover;
-          -o-background-size: cover;
-          background-size: cover;            
         }
 
         &.img3{
-          background: url(../images/test2.jpg) no-repeat center center; 
-          -webkit-background-size: cover;
-          -moz-background-size: cover;
-          -o-background-size: cover;
-          background-size: cover;            
+          background: url(../images/test2.jpg) no-repeat center center;    
         }
 
-
         &.img4{
-          background: url(../images/test3.jpg) no-repeat center center; 
-          -webkit-background-size: cover;
-          -moz-background-size: cover;
-          -o-background-size: cover;
-          background-size: cover;            
-        }        
+          background: url(../images/test3.jpg) no-repeat center center;        
+        }  
+
+        &.img5{
+          background: url(../images/test2.jpg) no-repeat center center;    
+        }
+
+        &.img6{
+          background: url(../images/test3.jpg) no-repeat center center;        
+        }  
     }
 }

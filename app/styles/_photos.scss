@@ -134,6 +134,29 @@ ul.photos {
 	}
 }
 
+.fullImage {
+	margin: 0 auto 20px auto;
+	width: 720px;
+	height: 480px;
+	overflow: hidden;
+
+	img {
+		max-width: 800px;
+		display: block;
+		margin: 0 auto;
+	}
+}
+
+.thumbWrapper {
+	height: 230px;
+	overflow: scroll;
+}
+
+.thumb {
+	width: 70px;
+	height: 46px;
+}
+
 
 .popupModal {
 	width: 860px;

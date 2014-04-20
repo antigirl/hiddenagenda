@@ -24,15 +24,18 @@ section.blocks {
      &#slide1{
         background: transparent;
         margin-bottom: 450px;
-    }    
+    }
+
+    &:last-child {
+        margin-bottom: -20px;
+    }
 }
 
 
-.videoContainer 
-{
-    position:fixed;
-    height:100%;
-    width:100%;
+.videoContainer {
+    position: fixed;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
     top:0;
     left:0;
@@ -92,3 +95,16 @@ h2 {
     display:block;          
 }
 
+.preloader {
+    width: 128px;
+    height: 128px;
+    display: block;
+    margin: 200px auto;
+}
+
+
+#slide5 .content {
+    padding-top: 30px;
+    text-align: left;
+    font-size: 30px;
+}
