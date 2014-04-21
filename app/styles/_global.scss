@@ -9,6 +9,10 @@ body {
     color: #fff;
     height: 100%;
     width: 100%;
+
+    &.modal-open {
+        overflow: hidden;
+    }
 }
 
 
@@ -106,5 +110,5 @@ h2 {
 #slide5 .content {
     padding-top: 30px;
     text-align: left;
-    font-size: 30px;
+    font-size: 27px;
 }

@@ -19,6 +19,7 @@ var hagenda = hagenda || {};
                         $('.parallaxWrap .img' + (i + 2)).css('-webkit-transform', 'translate3d(0, -90000px, 0)');
 
                         if ((i + 1) == 2) { //if slide 2 is in view, pause the video
+                            $('nav').addClass('fixed');
                             _this.actionVideo('pause');
                         }
                     }
@@ -28,6 +29,7 @@ var hagenda = hagenda || {};
                     }
                     //if slide 1 is in view, play the video
                     if (_this.getDocViewTop() - _this.getElOffsetTop('slide2') <= 0) {
+                        $('nav').removeClass('fixed');
                         _this.actionVideo('play');
                     }
 

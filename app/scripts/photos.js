@@ -8,6 +8,7 @@
             $(this).addClass('active');
             $('.popupModal').addClass('active');
             $('.wrapper').addClass('dialogOpen');
+            $('body').addClass('modal-open');
         },
 
 
@@ -16,6 +17,7 @@
             $('.popupModal').removeClass('active');
             $('.wrapper').removeClass('dialogOpen');
             $('.popupModal .content').html('<img src="images/global/preloader.gif" class="preloader"/>');
+            $('body').removeClass('modal-open');
         },
 
         getData: function(e) {
@@ -24,7 +26,7 @@
             hagenda.Photos.dialogueOpen();
 
             $.ajax({
-                url: 'https://graph.facebook.com/' + albumID + '/photos?limit=100',
+                url: 'https://graph.facebook.com/' + albumID + '/photos?limit=122',
                 dataType: 'jsonp',
                 success: function(images) {
                     var source = $("#photo-template").html();

@@ -38,14 +38,14 @@
             var months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
 
             date = date.split("-");
-            var month = parseInt(date[1], 10);
+            var month = parseInt(date[1], 10) - 1;
             var day = date[2].split('T');
 
             return day[0] + '<span>' + months[month] + '</span>';
         },
 
         populatePopup: function(theID) {
-            $('.popupModal .content').append('<div class="header">' + this.events[theID].name.replace(/^.+:/, '').replace(/ *\[[^)]*\] */g, "").substring(0, 20) + '<span>' + hagenda.Events.sortDate(this.events[theID].date) + '</span> </div>' + '<div class="cover" style="background-image:url(' + this.events[theID].cover + ')"></div>' + '<div class="info">' + this.events[theID].name + '<br/><br/>' + this.events[theID].desc + '</div>');
+            $('.popupModal .content').append('<div class="header">' + this.events[theID].name.replace(/^.+:/, '').replace(/ *\[[^)]*\] */g, "").substring(0, 20) + '<span>' + hagenda.Events.sortDate(this.events[theID].date) + '</span> </div>' + '<div class="cover" style="background-image:url(' + this.events[theID].cover + ')"></div>' + '<div class="info">' + this.events[theID].desc + '</div>'); //+ this.events[theID].name + '<br/><br/>'
             hagenda.Events.populateYoutube();
         },
 
@@ -105,6 +105,7 @@
                 hagenda.Events.populatePopup(theID);
                 $('.popupModal').addClass('active');
                 $('.wrapper').addClass('dialogOpen');
+                $('body').addClass('modal-open');
             }
         },
 
@@ -115,6 +116,8 @@
         popupClose: function(e) {
             $('.popupModal').removeClass('active');
             $('.wrapper').removeClass('dialogOpen');
+            $('body').removeClass('modal-open');
+            $('.popupModal .content').html('<img src="images/global/preloader.gif" class="preloader"/>');
         },
 
         init: function() {
