@@ -4,7 +4,7 @@
 
         scrollTo: function(e) {
             var theID = $(this).data('nav');
-            var scrollBy = $('#' + theID).offset().top - 130;
+            var scrollBy = $('#' + theID).offset().top - 90;
             if ($(this).html() == 'EVENTS') {
                 scrollBy = 1310;
             }

@@ -17,6 +17,7 @@ function initialize() {
     var mapOptions = {
         zoom: 18,
         center: myLatlng,
+           disableDefaultUI: true,
         mapTypeControlOptions: {
             mapTypeIds: [google.maps.MapTypeId.SATELLITE, 'map_style']
         }
@@ -36,11 +37,11 @@ function initialize() {
     map.setMapTypeId('map_style');
 
 
-    var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        icon: 'images/global/map_marker.png'
-    });
+    // var marker = new google.maps.Marker({
+    //     position: myLatlng,
+    //     map: map,
+    //     icon: 'images/global/map_marker.png'
+    // });
 }
 
 function loadScript() {

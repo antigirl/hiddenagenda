@@ -3,9 +3,18 @@ html {
     width: 100%;
 }
 
+@font-face {
+  font-family: 'Futura';
+  src: url('futura-webfont.eot'); /* IE9 Compat Modes */
+  src: url('futura-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('futura-webfont.woff') format('woff'), /* Modern Browsers */
+       url('futura-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('futura-webfont.svg#Futura') format('svg'); /* Legacy iOS */
+}
+
 body {
     background: #000;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Futura", Helvetica, Arial, sans-serif;
     color: #fff;
     height: 100%;
     width: 100%;
@@ -69,14 +78,6 @@ section.blocks {
     z-index: 3;
  }
 
-
-.logo {
-    display: block;
-    margin: 0 auto;
-    padding-top: 200px;
-}
-
-
 h1 {
     color: #fff;
     position: absolute;
@@ -110,5 +111,17 @@ h2 {
 #slide5 .content {
     padding-top: 30px;
     text-align: left;
-    font-size: 27px;
+    font-size: 18px;
 }
+
+#slide1 .content {
+    display: table;
+    height: 100%;
+
+    .logoWrap {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+}
+

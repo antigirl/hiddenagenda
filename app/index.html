@@ -48,16 +48,16 @@
         <ul>
             <li data-nav="slide2">EVENTS</li>
             <li data-nav="slide3">PHOTOS</li>
-            <li data-nav="slide4">BLOG</li>
             <li data-nav="slide5">ABOUT</li>
             <li data-nav="slide6">CONTACT</li>
+            <li data-nav="slide4"><img src="images/social/social_menu.png" height="23"/></li>
         </ul>
     </nav>   
 
 
     <section class="blocks" id="slide1">
         <div class="content">
-            <img src="images/global/logo.png" class="logo"/>
+           <div class="logoWrap"> <img src="images/global/logo.png" class="logo"/> </div>
         </div>
     </section>
 
@@ -142,9 +142,30 @@
     <section class="blocks" id="slide6">
         <h1>CONTACT</h1>
         <h2>Get in touch!</h2>        
-            <!-- <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Button%20Factory%2C%20Dublin%2C%20Ireland&key=AIzaSyDmTiFPLDl0qhJKoQNQANXHYqBpYTYoxRA"></iframe>
-             -->
-            <div id="map-canvas" style="width: 100%; height: 100%"></div>
+      
+     <!--     <div id="map-canvas" style="width: 100%; height: 100%"></div> -->
+           <!--  Email: hiddenagendaclub@gmail.com
+            Address: Hidden Agenda LTD, 2nd Floor, Front Office, 39 Dame St, Dublin 2
+            Phone: +353879665575          
+
+
+            Sign up to the Hidden Agenda mailing list for competitions & news about our upcoming events! -->
+   
+        <div class="content">
+            <br/><br/><br/>         
+            <div class="contact">
+                <span class="heading">Hidden Agenda <span class="ltd">LTD</span></span>, <br/>2nd Floor, Front Office, <br/>39 Dame St, Dublin 2 <br/>
+                <span class="phone">+353 87 9665575 </span>
+                <a href="mailto:hiddenagendaclub@gmail.com?Subject=Hidden Agenda">hiddenagendaclub@gmail.com</a>
+            </div>
+        </div>    
+
+        <div class="newsletter">
+            <div class="content">
+                <div class="partA">Sign up to the Hidden Agenda mailing list <br/>for competitions & news about our upcoming events! </div>
+                <div class="partB"><input type="text" placeholder="Your Email"></input> <input type="submit" value="SUBMIT"></input>  </div>
+            </div>  
+        </div>
     </section>
 
 
@@ -180,7 +201,6 @@
         <script src="scripts/events.js"></script>
         <script src="scripts/social.js"></script>
         <script src="scripts/photos.js"></script>
-        <script src="scripts/map.js"></script>
         <!-- endbuild -->
 </body>
 </html>
